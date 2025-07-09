@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+input {
+  @apply !border-[#d9d9d9] placeholder:!text-[#b6bdc7];
+}
+
+.component-px {
+  @apply px-8 md:px-16 lg:px-24;
+}
+
+.component-py {
+  @apply py-8 lg:py-10;
+}

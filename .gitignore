@@ -23,9 +23,20 @@ dist-ssr
 *.sln
 *.sw?
 
-# DS_Store
-.DS_Store
-*.DS_Store
-
-# env
+# env files (can opt-in for committing if needed)
 .env
+*.env
+*.env.*
+.env.*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# DS_Store files
+.DS_Store
+*/.DS_Store
+**/.DS_Store
