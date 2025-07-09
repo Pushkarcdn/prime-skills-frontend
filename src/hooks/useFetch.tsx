@@ -59,7 +59,7 @@ const useFetch = <T,>(
     if (now) fetchData();
   }, []);
 
-  return { data, fetchData, loading, reloading, err, isFinished } as any;
+  return { fetchData, loading, data, reloading, err, isFinished } as any;
 };
 
 export default useFetch;
