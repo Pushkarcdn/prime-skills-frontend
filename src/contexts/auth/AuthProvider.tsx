@@ -27,7 +27,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (data: any) => {
     try {
-      const res = await hitApi("/sign-in", "POST", data);
+      const res = await hitApi("/auth/signin", "POST", data);
       if (res?.success) {
         setIsSignedIn(true);
         refetch();

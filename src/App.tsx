@@ -6,6 +6,7 @@ import AdminLayout from "./components/layouts/AdminLayout";
 import SignUp from "./pages/auth/sign-up";
 import SignIn from "./pages/auth/sign-in";
 import AuthProvider from "./contexts/auth/AuthProvider";
+import { Bounce, ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -29,6 +30,20 @@ function App() {
           </Route>
         </Routes>
       </AuthProvider>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   );
 }

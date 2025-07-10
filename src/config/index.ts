@@ -1,8 +1,10 @@
 const config = {
-  BE_URL: import.meta.env.BE_URL,
+  BE_URL: import.meta.env.VITE_BE_URL,
 
-  API_URL: import.meta.env.BE_URL + "/api",
+  API_URL: import.meta.env.VITE_BE_URL + "/api",
 };
+
+console.log(config.BE_URL);
 
 export const getFileUrl = (url: string) => {
   if (url?.startsWith("http")) return url;

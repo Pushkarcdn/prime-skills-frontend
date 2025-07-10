@@ -11,8 +11,13 @@
   --color-secondary-dark: #b08a02;
 }
 
-input {
-  @apply !border-[#d9d9d9] placeholder:!text-[#b6bdc7];
+input,
+textarea {
+  @apply border-1 border-gray-300 focus:outline-1 focus:outline-primary focus:outline-offset-0  ring-0 focus:border-transparent;
+}
+
+input[type="checkbox"] {
+  @apply outline-none;
 }
 
 .component-px {
