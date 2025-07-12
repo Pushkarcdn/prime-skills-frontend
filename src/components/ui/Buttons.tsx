@@ -83,3 +83,25 @@ export function PrimaryOutlineButton({
     </>
   );
 }
+
+export function SecondaryOutlineButton({
+  title,
+  className,
+  link,
+  type,
+  onClick,
+}: ButtonProps) {
+  const myclassName = `${commonclassName} border-2 border-secondary text-secondary hover:bg-secondary hover:text-white ${className} !py-2.5`;
+
+  return (
+    <>
+      {link && <LinkBtn title={title} className={myclassName} link={link} />}
+
+      {type && <TypeBtn title={title} className={myclassName} type={type} />}
+
+      {onClick && (
+        <ClickBtn title={title} className={myclassName} onClick={onClick} />
+      )}
+    </>
+  );
+}

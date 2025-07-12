@@ -20,9 +20,9 @@ const UserNavbar = () => {
           // custom dropdown menu
           <div className="relative flex items-center gap-2">
             <img
-              src={getFileUrl(userData?.profileImage || "")}
-              alt="user-avatar"
-              className="w-10 aspect-square rounded-full object-cover"
+              src={getFileUrl(userData?.profileImage)}
+              alt="profile-image"
+              className="w-10 h-10 border border-gray-200 aspect-square rounded-full object-cover"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             />
 
@@ -37,7 +37,11 @@ const UserNavbar = () => {
                 </h1>
                 <h1 className="text-xs font-medium">{userData?.email}</h1>
               </div>
-              <PrimaryOutlineButton title="Logout" onClick={signOut} />
+              <PrimaryOutlineButton
+                title="Logout"
+                onClick={signOut}
+                className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+              />
             </div>
           </div>
         )}

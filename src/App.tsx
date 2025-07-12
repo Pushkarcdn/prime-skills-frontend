@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import About from "./pages/about";
 import AuthLayout from "./components/layouts/AuthLayout";
@@ -8,6 +8,8 @@ import SignUp from "./pages/auth/sign-up";
 import SignIn from "./pages/auth/sign-in";
 import AuthProvider from "./contexts/auth/AuthProvider";
 import { Bounce, ToastContainer } from "react-toastify";
+import Dashboard from "./pages/admin/dashboard";
+import Users from "./pages/admin/users";
 
 function App() {
   return (
@@ -28,8 +30,9 @@ function App() {
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
-            <Route path="/admin" element={<div>Admin Dashboard</div>} />
-            <Route path="/admin/users" element={<div>Users</div>} />
+            <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/users" element={<Users />} />
           </Route>
         </Routes>
       </AuthProvider>

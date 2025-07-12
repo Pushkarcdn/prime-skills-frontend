@@ -11,6 +11,18 @@
   --color-secondary-dark: #b08a02;
 }
 
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
+@utility component-px {
+  @apply px-8 md:px-16 lg:px-32;
+}
+
+@utility component-py {
+  @apply py-8 lg:py-10;
+}
+
 input,
 textarea {
   @apply border-1 border-gray-300 focus:outline-1 focus:outline-primary focus:outline-offset-0  ring-0 focus:border-transparent;
@@ -18,14 +30,6 @@ textarea {
 
 input[type="checkbox"] {
   @apply outline-none;
-}
-
-.component-px {
-  @apply px-8 md:px-16 lg:px-32;
-}
-
-.component-py {
-  @apply py-8 lg:py-10;
 }
 
 .floating-input {

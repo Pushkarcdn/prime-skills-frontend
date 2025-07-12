@@ -5,6 +5,7 @@ const config = {
 };
 
 export const getFileUrl = (url: string) => {
+  console.log(url);
   if (url?.startsWith("http")) return url;
 
   if (!url) return "https://placehold.co/400?text=NA";
