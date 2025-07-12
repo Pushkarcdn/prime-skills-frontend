@@ -49,7 +49,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-white">
+    <div className="relative flex items-center justify-center h-full bg-white overflow-y-auto">
       <section className="w-full max-w-lg p-8 rounded-lg">
         <h2 className="text-2xl text-center font-semibold mb-2 text-primary">
           Sign in
@@ -171,7 +171,7 @@ const SignInForm = () => {
           <p className="text-sm text-gray-500">
             Don&apos;t have an account?{" "}
             <Link
-              to="/sign-up"
+              to="/auth/sign-up"
               className="text-primary font-medium hover:underline"
             >
               Sign up

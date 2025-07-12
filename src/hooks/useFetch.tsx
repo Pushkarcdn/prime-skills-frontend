@@ -47,9 +47,9 @@ const useFetch = <T,>(
         console.error(error);
       }
     } finally {
+      setIsFinished(true);
       setLoading(false);
       setReloading(false);
-      setIsFinished(true);
     }
   }, [url, method, body, headers, responseType, timeout]);
 

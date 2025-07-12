@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import About from "./pages/about";
+import AuthLayout from "./components/layouts/AuthLayout";
 import UserLayout from "./components/layouts/UserLayout";
 import AdminLayout from "./components/layouts/AdminLayout";
 import SignUp from "./pages/auth/sign-up";
@@ -14,8 +15,10 @@ function App() {
       <AuthProvider>
         <Routes>
           {/* Auth Routes */}
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/auth" element={<AuthLayout />}>
+            <Route path="/auth/sign-in" element={<SignIn />} />
+            <Route path="/auth/sign-up" element={<SignUp />} />
+          </Route>
 
           {/* User Routes */}
           <Route path="/" element={<UserLayout />}>

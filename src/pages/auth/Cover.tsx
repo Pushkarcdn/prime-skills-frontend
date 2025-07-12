@@ -1,8 +1,8 @@
-import professional from "../../../assets/images/professional.jpg";
+import professional from "../../assets/images/professional.jpg";
 
 const Cover = () => {
   return (
-    <div className="hidden lg:block overflow-hidden relative">
+    <div className="hidden lg:block overflow-hidden relative h-screen">
       <img
         src={professional}
         alt="sign-in"

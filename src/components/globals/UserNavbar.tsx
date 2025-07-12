@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { PrimaryButton, PrimaryOutlineButton } from "../ui/Buttons";
+import { PrimaryOutlineButton } from "../ui/Buttons";
 import { useState } from "react";
 import { getFileUrl } from "../../config";
 
 const UserNavbar = () => {
   const { userData, isSignedIn, signOut } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
     <div className="w-full component-px py-5 flex items-center justify-between bg-gray-50">
       <Link to="/" className="flex items-center justify-start">
         <img src="/logo.png" alt="logo" className="w-8 h-8" />
         <h1 className="text-2xl font-bold ml-2">Prime Skill Store</h1>
       </Link>
+
       <div className="flex items-center justify-end gap-4">
-        {isSignedIn ? (
+        {isSignedIn && userData && (
           // custom dropdown menu
           <div className="relative flex items-center gap-2">
             <img
@@ -38,11 +40,6 @@ const UserNavbar = () => {
               <PrimaryOutlineButton title="Logout" onClick={signOut} />
             </div>
           </div>
-        ) : (
-          <>
-            <PrimaryOutlineButton title="Login" link="/sign-in" className="" />
-            <PrimaryButton title="Register" link="/sign-up" />
-          </>
         )}
       </div>
     </div>

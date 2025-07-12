@@ -130,7 +130,7 @@ const SignUpForm = () => {
       if (res?.success) {
         setErr("");
         setSuccess(true);
-        navigate("/sign-in");
+        navigate("/auth/sign-in");
       } else {
         setErr(res?.message);
       }
@@ -150,7 +150,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-start bg-white overflow-y-auto">
+    <div className="relative flex justify-center items-start h-full bg-white overflow-y-auto">
       <section className="w-full max-w-lg px-8 py-16 rounded-lg">
         <h2 className="text-2xl text-center font-semibold mb-1 text-primary">
           Sign up {formData.role === "jobSeeker" ? "to get hired!" : "to hire!"}
@@ -495,7 +495,7 @@ const SignUpForm = () => {
           <p className="text-sm text-gray-500">
             Already have an account?{" "}
             <Link
-              to="/sign-in"
+              to="/auth/sign-in"
               className="text-primary font-medium hover:underline"
             >
               Sign in
