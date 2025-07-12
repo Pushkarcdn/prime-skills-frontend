@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-unused-vars */
 
 import { type ReactNode, useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
@@ -14,7 +13,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signOut = async () => {
     try {
-      const res = await hitApi("/sign-out");
+      const res = await hitApi("/auth/signout");
       if (res?.success) {
         setIsSignedIn(false);
         navigate("/sign-in");
@@ -43,7 +42,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     fetchData: refetch,
     loading,
     isFinished,
-  } = useFetch("/me") as any;
+  } = useFetch("/auth/me") as any;
 
   useEffect(() => {
     if (userData) setIsSignedIn(!!userData);

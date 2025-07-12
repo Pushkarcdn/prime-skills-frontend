@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { EyeIcon, ViewIcon } from "@hugeicons/core-free-icons";
+import { ViewIcon, ViewOffSlashIcon } from "@hugeicons/core-free-icons";
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ const SignInForm = () => {
               type="text"
               id="email"
               name="email"
-              className="floating-input py-2 px-5 text-sm rounded-md w-full outline-none border border-primary"
+              className="floating-input py-2 px-5 text-sm rounded-md w-full"
               placeholder=""
               value={formData.email}
               onChange={handleChange}
@@ -85,7 +85,7 @@ const SignInForm = () => {
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className="floating-input py-2 px-5 text-sm rounded-md w-full outline-none border border-primary"
+              className="floating-input py-2 px-5 text-sm rounded-md w-full"
               placeholder=""
               value={formData.password}
               onChange={handleChange}
@@ -103,7 +103,7 @@ const SignInForm = () => {
             >
               {showPassword ? (
                 <HugeiconsIcon
-                  icon={EyeIcon}
+                  icon={ViewOffSlashIcon}
                   className="h-5 w-5 text-gray-700"
                 />
               ) : (

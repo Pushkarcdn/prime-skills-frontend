@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { EyeIcon, ViewIcon } from "@hugeicons/core-free-icons";
+import { ViewIcon, ViewOffSlashIcon } from "@hugeicons/core-free-icons";
 import hitApi from "../../../api/axios";
 import { formatCamelCase } from "../../../utils/stringFormatters";
 
@@ -207,7 +207,7 @@ const SignUpForm = () => {
               type="email"
               id="email"
               name="email"
-              className="floating-input py-2 px-5 text-sm rounded-md w-full  "
+              className="floating-input py-2 px-5 text-sm rounded-md w-full"
               placeholder=""
               value={formData.email}
               onChange={handleChange}
@@ -375,7 +375,7 @@ const SignUpForm = () => {
             >
               {showPassword ? (
                 <HugeiconsIcon
-                  icon={EyeIcon}
+                  icon={ViewOffSlashIcon}
                   className="h-5 w-5 text-gray-700"
                 />
               ) : (
@@ -393,7 +393,7 @@ const SignUpForm = () => {
               type={showConfirmPassword ? "text" : "password"}
               id="confirmPassword"
               name="confirmPassword"
-              className="floating-input py-2 px-5 text-sm rounded-md w-full  "
+              className="floating-input py-2 px-5 text-sm rounded-md w-full"
               placeholder=""
               value={formData.confirmPassword}
               onChange={handleChange}
@@ -410,7 +410,7 @@ const SignUpForm = () => {
             >
               {showConfirmPassword ? (
                 <HugeiconsIcon
-                  icon={EyeIcon}
+                  icon={ViewOffSlashIcon}
                   className="h-5 w-5 text-gray-700"
                 />
               ) : (
