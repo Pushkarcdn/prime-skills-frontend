@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ViewIcon, ViewOffSlashIcon } from "@hugeicons/core-free-icons";
+import OAuthOptions from "../OAuthOptions";
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -51,10 +52,10 @@ const SignInForm = () => {
   return (
     <div className="relative flex items-center justify-center h-full bg-white overflow-y-auto">
       <section className="w-full max-w-lg p-8 rounded-lg">
-        <h2 className="text-2xl text-center font-semibold mb-2 text-primary">
+        <h2 className="text-2xl text-center font-semibold mb-2 text-primary select-none">
           Sign in
         </h2>
-        <p className="text-greyish text-center text-sm mb-4">
+        <p className="text-greyish text-center text-sm mb-4 select-none">
           Enter your login credentials.
         </p>
         <form
@@ -115,7 +116,7 @@ const SignInForm = () => {
             </span>
           </div>
 
-          <div className="flex justify-end items-center text-xs">
+          <div className="flex justify-end items-center text-xs select-none">
             <Link
               to="/forgot-password"
               className="text-primary font-medium hover:underline"
@@ -126,7 +127,7 @@ const SignInForm = () => {
 
           <input
             type="submit"
-            className="bg-primary hover:bg-primary-dark transition text-white font-semibold py-3 px-4 rounded cursor-pointer text-sm"
+            className="bg-primary hover:bg-primary-dark transition text-white font-semibold py-3 px-4 rounded cursor-pointer text-sm select-none"
             value={loading ? "Signing in..." : "Sign in"}
             disabled={loading || success}
           />
@@ -143,31 +144,9 @@ const SignInForm = () => {
           </p>
         )}
 
-        <div className="flex justify-center items-center gap-x-2 mt-2">
-          <div className="w-full h-[1px] bg-gray-300"></div>
-          <p className="text-sm text-gray-500 text-nowrap">Or sign in with</p>
-          <div className="w-full h-[1px] bg-gray-300"></div>
-        </div>
-        {/* Sign in with Google button */}
-        <div className="flex justify-between mb-2 mt-4 gap-x-6">
-          {["google", "facebook", "linkedin"].map((item) => (
-            <Link
-              to={`/auth/${item}`}
-              key={item}
-              type="button"
-              className="bg-white hover:bg-gray-50 transition-colors duration-300 py-2 px-4 rounded-2xl w-full flex items-center justify-center text-center border border-gray-200"
-            >
-              <img
-                src={`/o-auth-icons/${item}.png`}
-                alt={item}
-                width={30}
-                height={30}
-                className="mr-2 object-contain"
-              />
-            </Link>
-          ))}
-        </div>
-        <div className="flex justify-center items-center gap-x-2 mt-4">
+        <OAuthOptions />
+
+        <div className="flex justify-center items-center gap-x-2 mt-4 select-none">
           <p className="text-sm text-gray-500">
             Don&apos;t have an account?{" "}
             <Link

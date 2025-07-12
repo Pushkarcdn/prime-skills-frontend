@@ -16,8 +16,10 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       const res = await hitApi("/auth/signout");
       if (res?.success) {
         setIsSignedIn(false);
-        navigate("/sign-in");
+        refetch();
+        navigate("/auth/sign-in");
       }
+
       return res?.success;
     } catch (error) {
       console.error("Error during logout: ", error);

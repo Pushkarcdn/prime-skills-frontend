@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ViewIcon, ViewOffSlashIcon } from "@hugeicons/core-free-icons";
 import hitApi from "../../../api/axios";
 import { formatCamelCase } from "../../../utils/stringFormatters";
+import OAuthOptions from "../OAuthOptions";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -152,10 +153,10 @@ const SignUpForm = () => {
   return (
     <div className="relative flex justify-center items-start h-full bg-white overflow-y-auto">
       <section className="w-full max-w-lg px-8 py-16 rounded-lg">
-        <h2 className="text-2xl text-center font-semibold mb-1 text-primary">
+        <h2 className="text-2xl text-center font-semibold mb-1 text-primary select-none">
           Sign up {formData.role === "jobSeeker" ? "to get hired!" : "to hire!"}
         </h2>
-        <p className="text-greyish text-center text-sm mb-5">
+        <p className="text-greyish text-center text-sm mb-5 select-none">
           Create an account to get started.
         </p>
 
@@ -423,7 +424,7 @@ const SignUpForm = () => {
           </div>
 
           {/* Terms and Conditions */}
-          <div className="flex items-center">
+          <div className="flex items-center select-none">
             <input
               type="checkbox"
               id="terms"
@@ -439,7 +440,7 @@ const SignUpForm = () => {
             />
             <label
               htmlFor="terms"
-              className="ml-2 block text-sm text-gray-700 select-none"
+              className="ml-2 block text-sm text-gray-700 select-none cursor-pointer"
             >
               I agree to the{" "}
               <Link to="/terms" className="text-primary hover:underline">
@@ -450,7 +451,7 @@ const SignUpForm = () => {
 
           <input
             type="submit"
-            className="bg-primary hover:bg-primary-dark transition text-white font-semibold py-3 px-4 rounded cursor-pointer text-sm"
+            className="bg-primary hover:bg-primary-dark transition text-white font-semibold py-3 px-4 rounded cursor-pointer text-sm select-none"
             value={loading ? "Signing up..." : "Sign up"}
             disabled={loading || success}
           />
@@ -467,31 +468,9 @@ const SignUpForm = () => {
           </p>
         )}
 
-        <div className="flex justify-center items-center gap-x-2 mt-2">
-          <div className="w-full h-[1px] bg-gray-300"></div>
-          <p className="text-sm text-gray-500 text-nowrap">Or sign up with</p>
-          <div className="w-full h-[1px] bg-gray-300"></div>
-        </div>
-        {/* Sign in with Google button */}
-        <div className="flex justify-between mb-2 mt-4 gap-x-6">
-          {["google", "facebook", "linkedin"].map((item) => (
-            <Link
-              to={`/auth/${item}`}
-              key={item}
-              type="button"
-              className="bg-white hover:bg-gray-50 transition-colors duration-300 py-2 px-4 rounded-2xl w-full flex items-center justify-center text-center border-gray-200 border-1"
-            >
-              <img
-                src={`/o-auth-icons/${item}.png`}
-                alt={item}
-                width={30}
-                height={30}
-                className="mr-2 object-contain"
-              />
-            </Link>
-          ))}
-        </div>
-        <div className="flex justify-center items-center gap-x-2 mt-4">
+        <OAuthOptions />
+
+        <div className="flex justify-center items-center gap-x-2 mt-4 select-none">
           <p className="text-sm text-gray-500">
             Already have an account?{" "}
             <Link
@@ -503,14 +482,14 @@ const SignUpForm = () => {
           </p>
         </div>
 
-        <div className="flex justify-center items-center gap-x-2 my-2">
+        <div className="flex justify-center items-center gap-x-2 my-2 select-none">
           <div className="w-full h-[1px] bg-gray-300"></div>
           <p className=" text-gray-500 text-nowrap text-xs">Or</p>
           <div className="w-full h-[1px] bg-gray-300"></div>
         </div>
 
         {/* Role toggle link */}
-        <div className="text-center">
+        <div className="text-center select-none">
           <p className="text-sm text-gray-600">
             {formData.role === "jobSeeker" ? (
               <>
