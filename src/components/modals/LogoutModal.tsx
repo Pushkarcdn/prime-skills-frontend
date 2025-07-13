@@ -27,9 +27,7 @@ const LogoutModal = ({ isOpen, closeModal, action }: ModuleModalProps) => {
           <span className="font-medium text-lg">Logout</span>
         </div>
 
-        <p className="text-center">
-          Are you sure want to log out from One College?
-        </p>
+        <p className="text-center">Are you sure want to log out?</p>
 
         <div className="flex gap-4 items-center text-sm mt-3">
           <SecondaryOutlineButton title={"Cancel"} onClick={closeModal} />

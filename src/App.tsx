@@ -10,6 +10,7 @@ import AuthProvider from "./contexts/auth/AuthProvider";
 import { Bounce, ToastContainer } from "react-toastify";
 import Dashboard from "./pages/admin/dashboard";
 import Users from "./pages/admin/users";
+import NewUser from "./pages/admin/users/new";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/users" element={<Users />} />
+            <Route path="/admin/users/new" element={<NewUser />} />
           </Route>
         </Routes>
       </AuthProvider>

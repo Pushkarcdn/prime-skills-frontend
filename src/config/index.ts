@@ -5,7 +5,6 @@ const config = {
 };
 
 export const getFileUrl = (url: string) => {
-  console.log(url);
   if (url?.startsWith("http")) return url;
 
   if (!url) return "https://placehold.co/400?text=NA";
@@ -15,10 +14,10 @@ export const getFileUrl = (url: string) => {
 
 export const fileSizes = {
   // in MB
-  profileImage: 5,
-  coverImage: 5,
-  cv: 5,
-  attachment: 5,
+  profileImage: 2,
+  coverImage: 2,
+  cv: 2,
+  attachment: 2,
 };
 
 export default config;

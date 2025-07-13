@@ -7,10 +7,11 @@ interface ButtonProps {
   link?: string;
   type?: "submit" | "reset";
   onClick?: any;
+  disabled?: boolean;
 }
 
 const commonclassName =
-  "text-center text-sm lg:text-base py-3 px-5 sm:px-8 text-nowrap font-medium rounded-lg flex justify-center items-center rounded-md transition cursor-pointer";
+  "text-center text-sm py-3 px-5 sm:px-8 text-nowrap font-medium rounded-lg flex justify-center items-center rounded-md transition cursor-pointer";
 
 const LinkBtn = ({ title, link, className }: ButtonProps) => {
   return (
@@ -46,8 +47,11 @@ export function PrimaryButton({
   link,
   type,
   onClick,
+  disabled,
 }: ButtonProps) {
-  const myclassName = `${commonclassName} bg-primary text-white hover:bg-primary-dark ${className}`;
+  const myclassName = `${commonclassName} bg-primary text-white hover:bg-primary-dark ${className} ${
+    disabled ? "opacity-50 cursor-not-allowed" : ""
+  }`;
 
   return (
     <>
@@ -68,8 +72,11 @@ export function PrimaryOutlineButton({
   link,
   type,
   onClick,
+  disabled,
 }: ButtonProps) {
-  const myclassName = `${commonclassName} border-2 border-primary text-primary hover:bg-primary hover:text-white ${className} !py-2.5`;
+  const myclassName = `${commonclassName} border-2 border-primary text-primary hover:bg-primary hover:text-white ${className} !py-2.5 ${
+    disabled ? "opacity-50 cursor-not-allowed" : ""
+  }`;
 
   return (
     <>
@@ -90,8 +97,11 @@ export function SecondaryOutlineButton({
   link,
   type,
   onClick,
+  disabled,
 }: ButtonProps) {
-  const myclassName = `${commonclassName} border-2 border-secondary text-secondary hover:bg-secondary hover:text-white ${className} !py-2.5`;
+  const myclassName = `${commonclassName} border-2 border-secondary text-secondary hover:bg-secondary hover:text-white ${className} !py-2.5 ${
+    disabled ? "opacity-50 cursor-not-allowed" : ""
+  }`;
 
   return (
     <>

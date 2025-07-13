@@ -37,6 +37,11 @@ const data = [
   },
   {
     icon: <HugeiconsIcon icon={Calendar02Icon} size={22} strokeWidth={1.5} />,
+    text: "Jobs",
+    navigateTo: "/admin/jobs",
+  },
+  {
+    icon: <HugeiconsIcon icon={Calendar02Icon} size={22} strokeWidth={1.5} />,
     text: "Freelance works",
     navigateTo: "/admin/freelance-works",
   },
