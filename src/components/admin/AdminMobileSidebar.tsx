@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button, Drawer } from "antd";
+import { Drawer } from "antd";
 import PageOptions from "./PageOptions";
 import Logout from "../ui/Logout";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Menu01Icon, Menu02Icon } from "@hugeicons/core-free-icons";
+import { Menu02Icon } from "@hugeicons/core-free-icons";
 
 const MobileSidebar = () => {
   const [open, setOpen] = useState(false);
