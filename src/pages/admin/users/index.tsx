@@ -20,29 +20,35 @@ export default function Inquiries() {
 
   useEffect(() => {
     if (data) {
-      const filteredData = data.filter(
-        (item: any) =>
-          item?.firstName +
-            " " +
-            item?.lastName
-              ?.toLowerCase()
-              .includes(searchTerm?.toLowerCase().trim()) ||
-          item?.email
-            ?.toLowerCase()
-            .includes(searchTerm?.toLowerCase().trim()) ||
-          item?.phone?.toLowerCase().includes(searchTerm?.toLowerCase().trim())
-      );
+      const trimmedSearchTerm = searchTerm?.toLowerCase().trim() || "";
+      const filteredData =
+        trimmedSearchTerm === ""
+          ? data
+          : data.filter((item: any) => {
+              const fullName = `${item?.firstName || ""} ${
+                item?.lastName || ""
+              }`.toLowerCase();
+              const email = item?.email?.toLowerCase() || "";
+              const username = item?.username?.toLowerCase() || "";
+              const phone = item?.phone?.toLowerCase() || "";
+
+              return (
+                fullName.includes(trimmedSearchTerm) ||
+                email.includes(trimmedSearchTerm) ||
+                username.includes(trimmedSearchTerm) ||
+                phone.includes(trimmedSearchTerm)
+              );
+            });
+
       setJobSeekers(
         filteredData.filter((item: any) => item?.role === "jobSeeker")
       );
+
       setRecruiters(
         filteredData.filter((item: any) => item?.role === "recruiter")
       );
-      setAdmins(
-        filteredData.filter(
-          (item: any) => item?.role === "admin" || item?.role === "superAdmin"
-        )
-      );
+
+      setAdmins(filteredData.filter((item: any) => item?.role === "admin"));
     }
   }, [data, searchTerm]);
 
@@ -64,7 +70,7 @@ export default function Inquiries() {
             Users
           </span>
 
-          <Chip text={`${data?.length || 0} users found`} />
+          <Chip text={`${data?.length - 1 || 0} users found`} />
         </div>
         <input
           type="text"

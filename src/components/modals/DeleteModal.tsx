@@ -1,3 +1,5 @@
+import { Delete02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Modal } from "antd";
 
 interface ModuleModalProps {
@@ -35,7 +37,12 @@ const DeleteModal = ({
         <div className="flex flex-col items-center gap-2 py-2">
           <div className="flex flex-col items-center gap-5">
             <span className="rounded-[50%] p-2.5 bg-[#FCEEEE] text-[#E05151]">
-              {/* <HugeIcon name="trash" /> */}
+              <HugeiconsIcon
+                icon={Delete02Icon}
+                size={20}
+                strokeWidth={1.2}
+                color="red"
+              />
             </span>
             <span className="font-medium text-lg text-red-600">{title}</span>
           </div>

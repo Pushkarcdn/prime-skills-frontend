@@ -15,6 +15,15 @@ const All = ({ data, refetch }: any) => {
                 <th className="px-4 py-3 text-left font-medium">User</th>
                 <th className="px-4 py-3 text-left font-medium">Phone</th>
                 <th className="px-4 py-3 text-left font-medium">Address</th>
+                <th className="px-4 py-3 text-left font-medium">
+                  {data?.length > 0 &&
+                    data[0]?.role === "jobSeeker" &&
+                    "Profession"}
+                  {data?.length > 0 &&
+                    data[0]?.role === "recruiter" &&
+                    "Company"}
+                  {data?.length > 0 && data[0]?.role === "admin" && "Role"}
+                </th>
                 <th className="px-4 py-3 text-left font-medium">Registered</th>
                 <th className="px-8 py-3 text-center font-medium">Action</th>
               </tr>
@@ -44,6 +53,18 @@ const All = ({ data, refetch }: any) => {
 
                   <td className="border-t border-gray-300 px-4 py-5 text-left text-sm text-gray-500 text-nowrap">
                     {item?.temporaryAddress || item?.permanentAddress || "N/A"}
+                  </td>
+
+                  <td className="border-t border-gray-300 px-4 py-5 text-left text-sm text-gray-500 text-nowrap">
+                    {item?.role === "jobSeeker" && (
+                      <div>{item?.jobSeekerDetails?.profession || "N/A"}</div>
+                    )}
+
+                    {item?.role === "recruiter" && (
+                      <div>{item?.recruiterDetails?.companyName || "N/A"}</div>
+                    )}
+
+                    {item?.role === "admin" && <div>{item?.role}</div>}
                   </td>
 
                   <td className="border-t border-gray-300 px-4 py-5 text-left text-sm text-gray-500 text-nowrap">
