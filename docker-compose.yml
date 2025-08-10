@@ -1,0 +1,15 @@
+services:
+  app:
+    image: prime-skill-frontend:latest
+    container_name: prime-skill-frontend
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    networks:
+      - prime-skill-frontend-network
+
+networks:
+  prime-skill-frontend-network:
+    driver: bridge
