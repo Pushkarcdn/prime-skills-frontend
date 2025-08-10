@@ -11,8 +11,8 @@ env:
   SERVER_PASS: ${{ secrets.SERVER_PASS }}
   APP_ENV: ${{ secrets.APP_ENV }}
   NODE_ENV: production
-  EXTERNAL_PORT: 3000
-  INTERNAL_PORT: 3000
+  EXTERNAL_PORT: 3001
+  INTERNAL_PORT: 3001
   WORKDIR: /app
 
 jobs:
@@ -23,7 +23,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install sshpass
-        run: sudo apt update && sudo apt install sshpass -y
+        run: |
+          if ! command -v sshpass &> /dev/null; then
+            sudo apt update && sudo apt install sshpass -y
+          else
+            echo "sshpass is already installed"
+          fi
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
