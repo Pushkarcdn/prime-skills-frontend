@@ -6,6 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   preview: {
-		allowedHosts: ['prime-skills.pushkar.live']
+		allowedHosts: true
 	}
 });
