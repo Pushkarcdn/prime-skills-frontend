@@ -8,6 +8,7 @@ const BasicInformation = ({
   onChange,
   showPassword,
   togglePasswordVisibility,
+  passwordEditable,
 }: any) => {
   return (
     <div>
@@ -158,39 +159,41 @@ const BasicInformation = ({
           </label>
         </div>
 
-        <div className="relative">
-          <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            name="password"
-            className="floating-input py-2 px-5 text-sm rounded-md w-full"
-            placeholder=""
-            value={formData.password}
-            onChange={onChange}
-          />
-          <label
-            htmlFor="password"
-            className="floating-label absolute left-5 top-2.5 text-gray-500 transition-all duration-300"
-          >
-            Password <span className="text-red-500">*</span>
-          </label>
-          <span
-            onClick={togglePasswordVisibility}
-            className="absolute top-1/2 -translate-y-1/2 right-0 pr-3 flex items-center cursor-pointer"
-          >
-            {showPassword ? (
-              <HugeiconsIcon
-                icon={ViewOffSlashIcon}
-                className="h-5 w-5 text-gray-700"
-              />
-            ) : (
-              <HugeiconsIcon
-                icon={ViewIcon}
-                className="h-5 w-5 text-gray-700"
-              />
-            )}
-          </span>
-        </div>
+        {passwordEditable && (
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              className="floating-input py-2 px-5 text-sm rounded-md w-full"
+              placeholder=""
+              value={formData.password}
+              onChange={onChange}
+            />
+            <label
+              htmlFor="password"
+              className="floating-label absolute left-5 top-2.5 text-gray-500 transition-all duration-300"
+            >
+              Password <span className="text-red-500">*</span>
+            </label>
+            <span
+              onClick={togglePasswordVisibility}
+              className="absolute top-1/2 -translate-y-1/2 right-0 pr-3 flex items-center cursor-pointer"
+            >
+              {showPassword ? (
+                <HugeiconsIcon
+                  icon={ViewOffSlashIcon}
+                  className="h-5 w-5 text-gray-700"
+                />
+              ) : (
+                <HugeiconsIcon
+                  icon={ViewIcon}
+                  className="h-5 w-5 text-gray-700"
+                />
+              )}
+            </span>
+          </div>
+        )}
 
         <div className="relative select-none">
           <div className="px-3 text-sm rounded-md w-full">

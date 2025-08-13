@@ -11,6 +11,10 @@ import { Bounce, ToastContainer } from "react-toastify";
 import Dashboard from "./pages/admin/dashboard";
 import Users from "./pages/admin/users";
 import NewUser from "./pages/admin/users/new";
+import UserEdit from "./pages/admin/users/edit";
+import Jobs from "./pages/admin/jobs";
+import NewJob from "./pages/admin/jobs/new";
+import EditJob from "./pages/admin/jobs/edit";
 
 function App() {
   return (
@@ -35,12 +39,16 @@ function App() {
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/users" element={<Users />} />
             <Route path="/admin/users/new" element={<NewUser />} />
+            <Route path="/admin/users/:id" element={<UserEdit />} />
+            <Route path="/admin/jobs" element={<Jobs />} />
+            <Route path="/admin/jobs/new" element={<NewJob />} />
+            <Route path="/admin/jobs/:slug" element={<EditJob />} />
           </Route>
         </Routes>
       </AuthProvider>
 
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={3000}
         hideProgressBar
         newestOnTop

@@ -55,9 +55,9 @@ const AdminNavbar = () => {
     <nav
       className={`bg-white bg-opacity-80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200`}
     >
-      <div className="px-3 sm:px-8 py-4 flex items-center justify-between">
+      <div className="px-3 sm:px-8 py-2 flex items-center justify-between">
         <Link to="/admin">
-          <img src="/logo.png" alt="Logo" width={36} />
+          <img src="/logo.png" alt="Logo" width={45} />
         </Link>
 
         {userData && (

@@ -5,6 +5,8 @@ export function formatDate(
   dateString: string | Date,
   format: "short" | "long" = "short"
 ): string {
+  if (!dateString) return "N/A";
+
   const inputDate = new Date(dateString);
   // Remove time component from inputDate
   inputDate.setHours(0, 0, 0, 0);

@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import hitApi from "../../../../api/axios";
 import { formatCamelCase } from "../../../../utils/stringFormatters";
 import { PrimaryButton } from "../../../../components/ui/Buttons";
 
-import UserRoleSelector from "./UserRoleSelector";
-import BasicInformation from "./BasicInformation";
-import JobSeekerDetails from "./JobSeekerDetails";
-import RecruiterDetails from "./RecruiterDetails";
-import ProfileImageUpload from "./ProfileImageUpload";
+import UserRoleSelector from "../new/UserRoleSelector";
+import BasicInformation from "../new/BasicInformation";
+import JobSeekerDetails from "../new/JobSeekerDetails";
+import RecruiterDetails from "../new/RecruiterDetails";
 
-const NewUser = () => {
+const UserEdit = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fetchingUser, setFetchingUser] = useState(true);
 
   const [formData, setFormData] = useState({
     role: "jobSeeker",
@@ -27,8 +27,6 @@ const NewUser = () => {
     lastName: "",
     email: "",
     phone: "",
-    password: "",
-    profileImage: null,
     dob: "",
     gender: "",
     temporaryAddress: "",
@@ -52,6 +50,74 @@ const NewUser = () => {
     isIndividualEmployer: false,
     isCurrentlyHiring: false,
   }) as any;
+
+  // Fetch user data on component mount
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        setFetchingUser(true);
+        const response = await hitApi(`/users/${id}`, "GET");
+
+        if (response?.success) {
+          const userData = response.data;
+
+          // Set basic user data
+          setFormData({
+            role: userData.role,
+            username: userData.username,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            phone: userData.phone || "",
+            dob: userData.dob || "",
+            gender: userData.gender || "",
+            temporaryAddress: userData.temporaryAddress || "",
+            permanentAddress: userData.permanentAddress || "",
+            isTermsAndConditionsAccepted:
+              userData.isTermsAndConditionsAccepted || true,
+          });
+
+          // Set role specific data
+          if (userData.role === "jobSeeker" && userData.jobSeekerDetails) {
+            setJobSeekerDetails({
+              bio: userData.jobSeekerDetails.bio || "",
+              skills: userData.jobSeekerDetails.skills || [],
+              profession: userData.jobSeekerDetails.profession || "",
+              isOpenToWork: userData.jobSeekerDetails.isOpenToWork || false,
+            });
+          } else if (
+            userData.role === "recruiter" &&
+            userData.recruiterDetails
+          ) {
+            setRecruiterDetails({
+              companyName: userData.recruiterDetails.companyName || "",
+              companyAddress: userData.recruiterDetails.companyAddress || "",
+              companyWebsite: userData.recruiterDetails.companyWebsite || "",
+              aboutCompany: userData.recruiterDetails.aboutCompany || "",
+              positionInCompany:
+                userData.recruiterDetails.positionInCompany || "",
+              isIndividualEmployer:
+                userData.recruiterDetails.isIndividualEmployer || false,
+              isCurrentlyHiring:
+                userData.recruiterDetails.isCurrentlyHiring || false,
+            });
+          }
+        } else {
+          toast.error("Failed to fetch user data");
+        }
+      } catch (error: any) {
+        toast.error(
+          error?.message || "An error occurred while fetching user data"
+        );
+      } finally {
+        setFetchingUser(false);
+      }
+    };
+
+    if (id) {
+      fetchUserData();
+    }
+  }, [id]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -110,14 +176,6 @@ const NewUser = () => {
     setRecruiterDetails({ ...recruiterDetails, [field]: checked });
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleImageChange = (file: any) => {
-    setFormData({ ...formData, profileImage: file });
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -128,7 +186,6 @@ const NewUser = () => {
         "firstName",
         "lastName",
         "email",
-        "password",
         "role",
       ];
 
@@ -163,15 +220,15 @@ const NewUser = () => {
         payload.recruiterDetails = recruiterDetails;
       }
 
-      const res = await hitApi("/users", "POST", payload);
+      const res = await hitApi(`/users/${id}`, "PUT", payload);
 
       if (res?.success) {
-        toast.success("User created successfully!");
+        toast.success("User updated successfully!");
         setTimeout(() => {
           navigate("/admin/users");
         }, 2000);
       } else {
-        toast.error(res?.message || "Failed to create user");
+        toast.error(res?.message || "Failed to update user");
       }
     } catch (error: any) {
       toast.error(error?.message || "An error occurred");
@@ -180,9 +237,13 @@ const NewUser = () => {
     }
   };
 
+  if (fetchingUser) {
+    return <div className="w-full text-center py-10">Loading user data...</div>;
+  }
+
   return (
     <div className="w-full">
-      <h2 className="text-lg font-semibold mb-4">Create New User</h2>
+      <h2 className="text-lg font-semibold mb-4">Edit User</h2>
 
       <form onSubmit={handleSubmit} className="space-y-5 text-sm">
         {/* User Role Selection */}
@@ -191,18 +252,11 @@ const NewUser = () => {
           onChange={handleChange}
         />
 
-        <ProfileImageUpload
-          profileImage={formData.profileImage}
-          onImageChange={handleImageChange}
-        />
-
         {/* Basic Information */}
         <BasicInformation
           formData={formData}
           onChange={handleChange}
-          showPassword={showPassword}
-          togglePasswordVisibility={togglePasswordVisibility}
-          passwordEditable={true}
+          passwordEditable={false}
         />
 
         {/* Job Seeker Details */}
@@ -227,7 +281,7 @@ const NewUser = () => {
 
         <div className="flex justify-end">
           <PrimaryButton
-            title={loading ? "Creating..." : "Create User"}
+            title={loading ? "Updating..." : "Update User"}
             type="submit"
           />
         </div>
@@ -236,4 +290,4 @@ const NewUser = () => {
   );
 };
 
-export default NewUser;
+export default UserEdit;

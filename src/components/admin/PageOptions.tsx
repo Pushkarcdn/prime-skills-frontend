@@ -28,30 +28,23 @@ const data = [
     text: "Users",
     navigateTo: "/admin/users",
   },
-  {
-    icon: (
-      <HugeiconsIcon icon={Appointment01Icon} size={22} strokeWidth={1.5} />
-    ),
-    text: "Posts",
-    navigateTo: "/admin/posts",
-  },
+  // {
+  //   icon: (
+  //     <HugeiconsIcon icon={Appointment01Icon} size={22} strokeWidth={1.5} />
+  //   ),
+  //   text: "Posts",
+  //   navigateTo: "/admin/posts",
+  // },
   {
     icon: <HugeiconsIcon icon={Calendar02Icon} size={22} strokeWidth={1.5} />,
     text: "Jobs",
     navigateTo: "/admin/jobs",
   },
-  {
-    icon: <HugeiconsIcon icon={Calendar02Icon} size={22} strokeWidth={1.5} />,
-    text: "Freelance works",
-    navigateTo: "/admin/freelance-works",
-  },
-  {
-    icon: (
-      <HugeiconsIcon icon={MicrosoftAdminIcon} size={22} strokeWidth={1.5} />
-    ),
-    text: "Admins",
-    navigateTo: "/admin/admin-accounts",
-  },
+  // {
+  //   icon: <HugeiconsIcon icon={Calendar02Icon} size={22} strokeWidth={1.5} />,
+  //   text: "Freelance works",
+  //   navigateTo: "/admin/freelance-works",
+  // },
 ];
 
 const PageOptions = ({ close }: { close?: () => void }) => {
