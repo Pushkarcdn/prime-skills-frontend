@@ -5,10 +5,8 @@ import { useAuth } from "../../hooks/useAuth";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   BubbleChatQuestionIcon,
-  MicrosoftAdminIcon,
   Calendar02Icon,
   InboxIcon,
-  Appointment01Icon,
 } from "@hugeicons/core-free-icons";
 
 const data = [
