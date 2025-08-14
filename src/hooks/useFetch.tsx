@@ -15,7 +15,6 @@ const useFetch = <T,>(
   timeout: number = 10000
 ) => {
   const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [reloading, setReloading] = useState<boolean>(false);
   const [err, setErr] = useState<string | null>(null);
@@ -24,6 +23,7 @@ const useFetch = <T,>(
   const fetchData = useCallback(async () => {
     setErr(null);
     setReloading(true);
+    setIsFinished(false);
     try {
       const response = await hitApi(
         url,
@@ -48,18 +48,17 @@ const useFetch = <T,>(
       }
     } finally {
       setIsFinished(true);
-      setLoading(false);
       setReloading(false);
+      setIsFinished(true);
     }
   }, [url, method, body, headers, responseType, timeout]);
 
   // Use useEffect to fetch data when component mounts
   useEffect(() => {
-    setLoading(true);
     if (now) fetchData();
   }, []);
 
-  return { fetchData, loading, data, reloading, err, isFinished } as any;
+  return { fetchData, data, reloading, err, isFinished } as any;
 };
 
 export default useFetch;

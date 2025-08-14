@@ -37,7 +37,11 @@ const SignInForm = () => {
     if (res?.success) {
       setErr("");
       setSuccess(true);
-      navigate("/");
+      if (res?.data?.role === "admin" || res?.data?.role === "superAdmin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     } else {
       setErr(res?.message);
     }

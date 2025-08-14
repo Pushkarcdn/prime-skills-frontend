@@ -15,6 +15,7 @@ import UserEdit from "./pages/admin/users/edit";
 import Jobs from "./pages/admin/jobs";
 import NewJob from "./pages/admin/jobs/new";
 import EditJob from "./pages/admin/jobs/edit";
+import EmailVerificationFailed from "./pages/auth/email-verification/EmailVerificationFailed";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           <Route path="/auth" element={<AuthLayout />}>
             <Route path="/auth/sign-in" element={<SignIn />} />
             <Route path="/auth/sign-up" element={<SignUp />} />
+            <Route
+              path="/auth/email-verification/failed"
+              element={<EmailVerificationFailed />}
+            />
           </Route>
 
           {/* User Routes */}
