@@ -203,6 +203,7 @@ const ActionCard = ({ item, refetch }: any) => {
                     "jobDescription",
                     "jobRequirements",
                     "companyBenefits",
+                    "recruiterId",
                     "level",
                     "industry",
                     "locationType",

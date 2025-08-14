@@ -42,7 +42,9 @@ const JobDetails = ({ data, refetch }: any) => {
                   </td>
 
                   <td className="border-t border-gray-300 px-4 py-5 text-left text-sm text-gray-500 text-nowrap">
-                    {item?.recruiterName || "N/A"}
+                    {item?.recruiterId?.firstName +
+                      " " +
+                      item?.recruiterId?.lastName || "N/A"}
                   </td>
 
                   <td className="border-t border-gray-300 px-4 py-5 text-left text-sm text-gray-500 text-nowrap">
