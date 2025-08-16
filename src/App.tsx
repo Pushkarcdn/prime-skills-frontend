@@ -16,6 +16,7 @@ import Jobs from "./pages/admin/jobs";
 import NewJob from "./pages/admin/jobs/new";
 import EditJob from "./pages/admin/jobs/edit";
 import EmailVerificationFailed from "./pages/auth/email-verification/EmailVerificationFailed";
+import NotFound from "./components/ui/NotFound";
 
 function App() {
   return (
@@ -30,12 +31,18 @@ function App() {
               path="/auth/email-verification/failed"
               element={<EmailVerificationFailed />}
             />
+
+            {/* 404 route */}
+            <Route path="/auth/*" element={<NotFound />} />
           </Route>
 
           {/* User Routes */}
           <Route path="/" element={<UserLayout />}>
             <Route path="/" element={<Homepage />} />
             <Route path="/about" element={<About />} />
+
+            {/* 404 route */}
+            <Route path="/*" element={<NotFound />} />
           </Route>
 
           {/* Admin Routes */}
@@ -48,6 +55,9 @@ function App() {
             <Route path="/admin/jobs" element={<Jobs />} />
             <Route path="/admin/jobs/new" element={<NewJob />} />
             <Route path="/admin/jobs/:slug" element={<EditJob />} />
+
+            {/* 404 route */}
+            <Route path="/admin/*" element={<NotFound />} />
           </Route>
         </Routes>
       </AuthProvider>

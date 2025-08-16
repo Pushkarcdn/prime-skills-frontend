@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FailedImage from "../../../assets/illustrations/failed.svg";
 
 const EmailVerificationFailed = () => {
   return (
@@ -13,7 +14,7 @@ const EmailVerificationFailed = () => {
         </p>
 
         <img
-          src="/illustrations/failed.svg"
+          src={FailedImage}
           alt="Email verification failed illustration"
           className="w-100 h-50 mx-auto mb-6 select-none"
         />

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useState, useEffect, useCallback } from "react";
@@ -47,7 +46,6 @@ const useFetch = <T,>(
         console.error(error);
       }
     } finally {
-      setIsFinished(true);
       setReloading(false);
       setIsFinished(true);
     }

@@ -7,6 +7,7 @@ import {
   BubbleChatQuestionIcon,
   Calendar02Icon,
   InboxIcon,
+  UserSettings01Icon,
 } from "@hugeicons/core-free-icons";
 
 const data = [
@@ -43,6 +44,13 @@ const data = [
   //   text: "Freelance works",
   //   navigateTo: "/admin/freelance-works",
   // },
+  {
+    icon: (
+      <HugeiconsIcon icon={UserSettings01Icon} size={22} strokeWidth={1.5} />
+    ),
+    text: "My profile",
+    navigateTo: "/admin/my-profile",
+  },
 ];
 
 const PageOptions = ({ close }: { close?: () => void }) => {
