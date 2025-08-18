@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import About from "./pages/about";
+import Contact from "./pages/contact";
 import AuthLayout from "./components/layouts/AuthLayout";
 import UserLayout from "./components/layouts/UserLayout";
 import AdminLayout from "./components/layouts/AdminLayout";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<UserLayout />}>
             <Route path="/" element={<Homepage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
 
             {/* 404 route */}
             <Route path="/*" element={<NotFound />} />

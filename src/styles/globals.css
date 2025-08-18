@@ -23,6 +23,11 @@
   @apply py-8 lg:py-10;
 }
 
+* {
+  scroll-behavior: smooth;
+  
+}
+
 input,
 textarea {
   @apply border-1 border-gray-300 focus:outline-1 focus:outline-primary focus:outline-offset-0  ring-0 focus:border-transparent;

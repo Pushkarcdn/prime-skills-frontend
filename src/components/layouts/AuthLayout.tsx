@@ -6,7 +6,7 @@ import Loader from "../ui/Loader";
 const AuthLayout = () => {
   const { userData, isSignedIn, isFinished } = useAuth();
 
-  if (!isFinished) return <div></div>;
+  if (!isFinished) return <Loader />;
 
   if (isSignedIn && userData) return <Navigate to="/" />;
 

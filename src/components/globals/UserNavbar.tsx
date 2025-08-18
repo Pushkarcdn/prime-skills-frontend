@@ -12,7 +12,7 @@ const UserNavbar = () => {
     <div className="w-full component-px py-5 flex items-center justify-between bg-gray-50">
       <Link to="/" className="flex items-center justify-start">
         <img src="/logo.png" alt="logo" className="w-8 h-8" />
-        <h1 className="text-2xl font-bold ml-2">Prime Skill Store</h1>
+        <h1 className="text-2xl font-bold ml-2">Prime Skills</h1>
       </Link>
 
       <div className="flex items-center justify-end gap-4">

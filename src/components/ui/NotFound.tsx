@@ -6,7 +6,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex items-center justify-center w-full h-full">
+    <div className="relative flex items-center justify-center w-full h-[calc(100dvh-100px)]">
       <section className="w-full max-w-xl p-8 text-center flex flex-col items-center justify-center">
         <img src={NotFoundImage} alt="Not found" width={360} />
         <h2 className="text-2xl font-semibold mt-2 select-none text-primary">
