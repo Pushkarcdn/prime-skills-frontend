@@ -18,6 +18,7 @@ import NewJob from "./pages/admin/jobs/new";
 import EditJob from "./pages/admin/jobs/edit";
 import EmailVerificationFailed from "./pages/auth/email-verification/EmailVerificationFailed";
 import NotFound from "./components/ui/NotFound";
+import Search from "./pages/search";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/search" element={<Search />} />
 
             {/* 404 route */}
             <Route path="/*" element={<NotFound />} />

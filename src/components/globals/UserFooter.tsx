@@ -52,7 +52,7 @@ const UserFooter = () => {
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-200 mt-auto">
+    <footer className="bg-white border-t border-gray-200">
       {/* Main Footer Content */}
       <div className="component-px component-py">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

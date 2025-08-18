@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getFileUrl } from "../../config";
 import { useAuth } from "../../hooks/useAuth";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Home01Icon } from "@hugeicons/core-free-icons";
 
 const AdminNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,10 +65,11 @@ const AdminNavbar = () => {
         {userData && (
           <div className="flex items-center gap-2 select-none text-right">
             <Link to={"/"} className="mr-10 mt-3 relative group">
-              {/* <GoHomeFill
+              <HugeiconsIcon
+                icon={Home01Icon}
                 className="text-primary group-hover:scale-[1.05] group-hover:text-primary-dark transition"
                 size={27}
-              /> */}
+              />
               <div className="absolute hidden group-hover:block bg-white text-[#606060] text-sm rounded-lg py-1.5 px-4 z-10 text-nowrap shadow-lg -left-1/2">
                 Go to home
               </div>
