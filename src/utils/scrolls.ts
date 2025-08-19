@@ -10,3 +10,17 @@ export function disableScrollOnNumberInputs() {
     { passive: false } // Passive listeners cannot prevent default
   );
 }
+
+// Scroll to top utility function
+export function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+
+// Instant scroll to top (no animation)
+export function scrollToTopInstant() {
+  window.scrollTo(0, 0);
+}

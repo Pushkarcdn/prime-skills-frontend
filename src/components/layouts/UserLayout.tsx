@@ -14,7 +14,9 @@ const UserLayout = () => {
   return (
     <div className="w-full flex flex-col min-h-screen">
       <UserNavbar />
-      <Outlet />
+      <div className="py-10 md:py-16">
+        <Outlet />
+      </div>
       <UserFooter />
     </div>
   );

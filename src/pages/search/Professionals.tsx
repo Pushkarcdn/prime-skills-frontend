@@ -14,6 +14,8 @@ const capitalize = (text?: string) =>
   text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
 
 const Professionals = ({ query }: { query: string }) => {
+  if (query === "professionals") query = "";
+
   const {
     data,
     loading,
@@ -41,14 +43,18 @@ const Professionals = ({ query }: { query: string }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-600">
-          Showing{" "}
-          <span className="font-medium text-gray-900">
-            {professionals.length}
-          </span>{" "}
-          result{professionals.length === 1 ? "" : "s"} for
-          <span className="ml-1 font-medium text-primary">“{query}”</span>
-        </p>
+        {query ? (
+          <p className="text-sm text-gray-600">
+            Showing{" "}
+            <span className="font-medium text-gray-900">
+              {professionals.length}
+            </span>{" "}
+            result{professionals.length === 1 ? "" : "s"} for
+            <span className="ml-1 font-medium text-primary">“{query}”</span>
+          </p>
+        ) : (
+          <p className="text-sm text-gray-600">Suggestions</p>
+        )}
       </div>
 
       {professionals.length === 0 ? (

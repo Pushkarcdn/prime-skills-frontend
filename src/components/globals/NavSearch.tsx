@@ -40,7 +40,7 @@ const NavSearch = () => {
         //     handleSearch();
         //   }
         // }}
-        className="w-xs focus:w-md transition-all duration-300 bg-white rounded-3xl pl-10 pr-3 py-2 text-sm"
+        className="w-xs focus:w-md transition-all duration-200 bg-white rounded-3xl pl-10 pr-3 py-2 text-sm"
       />
       {/* hidden submit button to let user press enter to search */}
       <button type="submit" className="hidden" />

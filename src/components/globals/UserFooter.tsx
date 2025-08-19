@@ -6,14 +6,8 @@ const UserFooter = () => {
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Find Professionals", path: "/professionals" },
-    { name: "Find Jobs", path: "/jobs" },
-  ];
-
-  const support = [
-    { name: "Contact Us", path: "/contact" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Terms of Service", path: "/terms" },
+    { name: "Find Professionals", path: "/search?query=professionals" },
+    { name: "Find Jobs", path: "/search?query=jobs" },
   ];
 
   const socialLinks = [
@@ -59,11 +53,7 @@ const UserFooter = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <img
-                src="/logo.png"
-                alt="Prime Skills"
-                className="w-8 h-8"
-              />
+              <img src="/logo.png" alt="Prime Skills" className="w-8 h-8" />
               <h3 className="text-xl font-bold ml-2 text-gray-900">
                 Prime Skills
               </h3>
@@ -106,7 +96,6 @@ const UserFooter = () => {
                   <Link
                     to={link.path}
                     className="text-gray-600 hover:text-primary transition-colors duration-200 text-sm"
-                    onClick={() => window.scrollTo(0, 0)}
                   >
                     {link.name}
                   </Link>
@@ -118,23 +107,10 @@ const UserFooter = () => {
           {/* Support & Legal */}
           <div>
             <h4 className="text-gray-900 font-semibold mb-4">Support</h4>
-            <ul className="space-y-3">
-              {support.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.path}
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="text-gray-600 hover:text-primary transition-colors duration-200 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
 
             {/* Contact Info */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
-              <div className="space-y-2">
+            <div className="border-gray-100">
+              <div className="space-y-4">
                 <div className="flex items-center text-sm text-gray-600">
                   <svg
                     className="w-4 h-4 mr-2"

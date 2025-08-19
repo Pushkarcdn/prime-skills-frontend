@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import Jobs from "./Jobs";
 import Professionals from "./Professionals";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +13,14 @@ const Search = () => {
     Professionals: true,
     Jobs: false,
   });
+
+  useEffect(() => {
+    if (query === "jobs") {
+      setCurrentTab("Jobs");
+    } else if (query === "professionals") {
+      setCurrentTab("Professionals");
+    }
+  }, []);
 
   return (
     <div className="flex flex-col gap-4 component-px py-6">
