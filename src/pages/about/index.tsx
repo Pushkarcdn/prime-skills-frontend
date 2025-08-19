@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  PrimaryButton,
-  PrimaryOutlineButton,
-} from "../../components/ui/Buttons";
+import { PrimaryButton } from "../../components/ui/Buttons";
 import professional from "../../assets/images/professional.jpg";
 import Pushkar from "../../assets/images/pushkar.png";
 
