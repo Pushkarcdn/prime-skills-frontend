@@ -6,7 +6,7 @@ const Jobs = ({ query }: { query: string }) => {
   const {
     data,
     loading,
-    fetchData: refetch,
+    // fetchData: refetch,
   } = useFetch(`/jobs?query=${query}`) as any;
 
   if (loading) return <Loader />;
