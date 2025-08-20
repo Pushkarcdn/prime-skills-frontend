@@ -14,7 +14,10 @@ const NavSearch = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="relative w-full max-w-md flex-1">
+    <form
+      onSubmit={handleSearch}
+      className="block relative w-full max-w-md flex-1"
+    >
       <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-600">
         <svg
           xmlns="http://www.w3.org/2000/svg"
